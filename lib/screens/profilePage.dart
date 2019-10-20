@@ -35,35 +35,62 @@ class _ProfilePageState extends State<ProfilePage> {
     return <Widget>[
       Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Text(
-          "Institute Name: \n$institute",
-          softWrap: true,
-          style: TextStyle(
-            fontSize: 25,
-          ),
-          textAlign: TextAlign.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Institute Name: ",
+              softWrap: true,
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+              textAlign: TextAlign.start,
+            ),
+            Text(
+              "$institute ",
+              softWrap: true,
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.start,
+            ),
+          ],
         ),
       ),
       Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Text(
-          "Graduation Year: \n$year",
-          softWrap: true,
-          style: TextStyle(
-            fontSize: 25,
-          ),
-          textAlign: TextAlign.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Graduation Year:",
+              softWrap: true,
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+              textAlign: TextAlign.start,
+            ),
+            Text(
+              "$year ",
+              softWrap: true,
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.start,
+            ),
+          ],
         ),
       ),
       Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Text(
-          "Stream: \n$stream",
-          softWrap: true,
-          style: TextStyle(
-            fontSize: 25,
-          ),
-          textAlign: TextAlign.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Stream:",
+              softWrap: true,
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+              textAlign: TextAlign.start,
+            ),
+            Text(
+              "$stream ",
+              softWrap: true,
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.start,
+            ),
+          ],
         ),
       ),
     ];
@@ -74,35 +101,62 @@ class _ProfilePageState extends State<ProfilePage> {
     return <Widget>[
       Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Text(
-          "Company Name: \n$company",
-          softWrap: true,
-          style: TextStyle(
-            fontSize: 25,
-          ),
-          textAlign: TextAlign.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Company Name:",
+              softWrap: true,
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+              textAlign: TextAlign.start,
+            ),
+            Text(
+              "$company",
+              softWrap: true,
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.start,
+            ),
+          ],
         ),
       ),
       Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Text(
-          "Experience: \n$experience",
-          softWrap: true,
-          style: TextStyle(
-            fontSize: 25,
-          ),
-          textAlign: TextAlign.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Experience:",
+              softWrap: true,
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+              textAlign: TextAlign.start,
+            ),
+            Text(
+              "$experience ",
+              softWrap: true,
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.start,
+            ),
+          ],
         ),
       ),
       Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Text(
-          "Role: \n$role",
-          softWrap: true,
-          style: TextStyle(
-            fontSize: 25,
-          ),
-          textAlign: TextAlign.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Role: \n$role",
+              softWrap: true,
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+              textAlign: TextAlign.start,
+            ),
+            Text(
+              "$role ",
+              softWrap: true,
+              style: TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.start,
+            ),
+          ],
         ),
       ),
     ];
@@ -121,7 +175,10 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Image.asset("assets/$skill.png"),
+              ClipRRect(
+                child: Image.asset("assets/$skill.png"),
+                borderRadius: BorderRadius.circular(20),
+              ),
               Text(
                 skill,
                 style: TextStyle(fontSize: 20.0),
@@ -132,7 +189,7 @@ class _ProfilePageState extends State<ProfilePage> {
           width: MediaQuery.of(context).size.width * 0.4,
         ),
         onTap: () {},
-        splashColor: Colors.redAccent,
+        splashColor: Theme.of(context).accentColor,
       ),
     );
   }
@@ -150,7 +207,10 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Text(
               "Pushkar Patel",
               softWrap: true,
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
               textAlign: TextAlign.start,
             ),
           ),
@@ -180,24 +240,42 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Text(
-              "Gender, Age :\nM, 19",
-              softWrap: true,
-              style: TextStyle(
-                fontSize: 25,
-              ),
-              textAlign: TextAlign.start,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Gender, Age :",
+                  softWrap: true,
+                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                  textAlign: TextAlign.start,
+                ),
+                Text(
+                  "M, 19",
+                  softWrap: true,
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                  textAlign: TextAlign.start,
+                ),
+              ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Text(
-              "T-shirt Size: \nM",
-              softWrap: true,
-              style: TextStyle(
-                fontSize: 25,
-              ),
-              textAlign: TextAlign.start,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "T-shirt Size:",
+                  softWrap: true,
+                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                  textAlign: TextAlign.start,
+                ),
+                Text(
+                  "M",
+                  softWrap: true,
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                  textAlign: TextAlign.start,
+                ),
+              ],
             ),
           ),
           Column(

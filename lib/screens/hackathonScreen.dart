@@ -34,17 +34,27 @@ class _HackathonScreenState extends State<HackathonScreen> {
             }
             // print(hackathons[0].toJSON());
 
-            return SingleChildScrollView(
-              child: Center(
-                child: Wrap(
-                  alignment: WrapAlignment.spaceBetween,
-                  runAlignment: WrapAlignment.spaceEvenly,
-                  children: <Widget>[
-                    cardBuilder(hackathon: hackathons[0]),
-                    cardBuilder(hackathon: hackathons[1]),
-                    cardBuilder(hackathon: hackathons[1]),
-                    cardBuilder(hackathon: hackathons[0]),
-                  ],
+            return Container(
+              height: double.infinity,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                Colors.blue[900],
+                Colors.indigo,
+                Colors.deepPurple,
+                Colors.purple[900]
+              ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+              child: SingleChildScrollView(
+                child: Center(
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    runAlignment: WrapAlignment.spaceEvenly,
+                    children: <Widget>[
+                      cardBuilder(hackathon: hackathons[0]),
+                      cardBuilder(hackathon: hackathons[1]),
+                      cardBuilder(hackathon: hackathons[1]),
+                      cardBuilder(hackathon: hackathons[0]),
+                    ],
+                  ),
                 ),
               ),
             );
@@ -97,7 +107,7 @@ class _HackathonScreenState extends State<HackathonScreen> {
             ),
           );
         },
-        splashColor: Colors.redAccent,
+        splashColor: Theme.of(context).accentColor,
       ),
     );
   }

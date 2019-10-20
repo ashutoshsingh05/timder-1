@@ -17,44 +17,73 @@ class _TeamPageState extends State<TeamPage> {
     return TimderScaffold(
       showNotificationIcon: true,
       title: "Team Details",
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            FlatButton(
-              color: Colors.blue,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text("Join a Team"),
-              onPressed: () {},
-            ),
-            FlatButton(
-              color: Colors.red,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text("Look for Teammates"),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return TimderSwipe();
-                    },
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+          Colors.blue[900],
+          Colors.indigo,
+          Colors.deepPurple,
+          Colors.purple[900]
+        ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              FlatButton(
+                color: Colors.blue,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(
+                    "Join a Team",
+                    style: TextStyle(fontSize: 40.0),
                   ),
-                );
-              },
-            ),
-            FlatButton(
-              color: Colors.green,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                ),
+                onPressed: () {},
               ),
-              child: Text("Create your own Team"),
-              onPressed: () {},
-            ),
-          ],
+              FlatButton(
+                color: Colors.red,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(
+                    "Look for \nTeammates",
+                    style: TextStyle(fontSize: 40.0),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return TimderSwipe();
+                      },
+                    ),
+                  );
+                },
+              ),
+              FlatButton(
+                color: Colors.green,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(
+                    "Create your \nown Team",
+                    style: TextStyle(fontSize: 40.0),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                onPressed: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );

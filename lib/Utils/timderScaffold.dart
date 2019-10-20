@@ -38,7 +38,15 @@ class TimderScaffold extends StatelessWidget {
               ]
             : null,
       ),
-      body: this.body,
+      body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+            Colors.blue[900],
+            Colors.indigo,
+            Colors.deepPurple,
+            Colors.purple[900]
+          ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+          child: this.body),
       floatingActionButton: this.floatingButton,
       bottomNavigationBar: bottomWidget,
     );
