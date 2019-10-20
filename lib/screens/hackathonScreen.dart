@@ -78,7 +78,10 @@ class _HackathonScreenState extends State<HackathonScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Image.network(hackathon.imageUrl),
+              ClipRRect(
+                child: Image.network(hackathon.imageUrl),
+                borderRadius: BorderRadius.circular(20),
+              ),
               Text(
                 "${hackathon.name}",
                 style: TextStyle(fontSize: 18.0),
