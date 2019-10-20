@@ -34,17 +34,26 @@ class _HackathonScreenState extends State<HackathonScreen> {
               hackathons[i] = Hackathon.fromJSON(snapshot.data.documents[i]);
             }
 
-            return SingleChildScrollView(
-              child: Center(
-                child: Wrap(
-                  alignment: WrapAlignment.spaceBetween,
-                  runAlignment: WrapAlignment.spaceEvenly,
-                  children: cardList(
-                    hackathons: hackathons,
+            return Container(
+                height: double.infinity,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                  Colors.blue[900],
+                  Colors.indigo,
+                  Colors.deepPurple,
+                  Colors.purple[900]
+                ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Wrap(
+                      alignment: WrapAlignment.spaceBetween,
+                      runAlignment: WrapAlignment.spaceEvenly,
+                      children: cardList(
+                        hackathons: hackathons,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            );
+                ));
           }
         }
       },
@@ -73,7 +82,10 @@ class _HackathonScreenState extends State<HackathonScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Image.network(hackathon.imageUrl),
+              ClipRRect(
+                child: Image.network(hackathon.imageUrl),
+                borderRadius: BorderRadius.circular(20),
+              ),
               Text(
                 "${hackathon.name}",
                 style: TextStyle(fontSize: 18.0),
@@ -103,7 +115,7 @@ class _HackathonScreenState extends State<HackathonScreen> {
             ),
           );
         },
-        splashColor: Colors.redAccent,
+        splashColor: Theme.of(context).accentColor,
       ),
     );
   }
