@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Participant {
+  String githubLink;
+  String linkedinLink;
   String email;
   String photoUrl;
   String uid;
@@ -30,6 +32,8 @@ class Participant {
   List<String> photos = new List<String>();
 
   Participant({
+    @required githubLink,
+    @required linkedinLink,
     @required this.gender,
     @required this.dob,
     @required this.tshirtSize,
@@ -58,6 +62,8 @@ class Participant {
   }
 
   Participant.fromJSON(snapshot) {
+    this.githubLink = snapshot["githubLink"];
+    this.linkedinLink = snapshot["linkedinLink"];
     this.email = snapshot["email"];
     this.photoUrl = snapshot["photoUrl"];
     this.uid = snapshot["uid"];
@@ -114,6 +120,8 @@ class Participant {
       "leftSwipes": <String>[],
       "rightSwipes": <String>[],
       "skills": <String>[],
+      "githubLink": this.githubLink,
+      "linkedinLink": this.linkedinLink,
     };
   }
 }

@@ -36,19 +36,44 @@ class _RequestNotificationState extends State<RequestNotification> {
                 print(snapshot.data.documents.first.data["email"]);
                 List<Participant> matches =
                     List<Participant>(snapshot.data.documents.length);
-
+                if (snapshot.data.documents.length == 0) {
+                  return Center(
+                    child: Text("Check back later to find your matches 😁"),
+                  );
+                }
                 return ListView.builder(
                   itemCount: snapshot.data.documents.length,
                   itemBuilder: (context, i) {
                     return ListTile(
                         title: Text(
-                            snapshot.data.documents[i].data["displayName"]),
+                          snapshot.data.documents[i].data["displayName"],
+                          style: TextStyle(color: Colors.white, fontSize: 25),
+                        ),
                         isThreeLine: true,
                         subtitle: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(snapshot.data.documents[i].data["bio"]),
+                            Text(
+                                "Bio : " +
+                                    snapshot.data.documents[i].data["bio"],
+                                style: TextStyle(color: Colors.white)),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                                "Github : " +
+                                    snapshot
+                                        .data.documents[i].data["githubLink"],
+                                style: TextStyle(color: Colors.white)),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                                "Linkedin : " +
+                                    snapshot
+                                        .data.documents[i].data["linkedinLink"],
+                                style: TextStyle(color: Colors.white)),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
@@ -56,31 +81,36 @@ class _RequestNotificationState extends State<RequestNotification> {
                                   width: 3,
                                 ),
                                 snapshot.data.documents[i].data["backend"]
-                                    ? Text("Backend")
+                                    ? Text("Backend",
+                                        style: TextStyle(color: Colors.white))
                                     : Text(""),
                                 SizedBox(
                                   width: 3,
                                 ),
                                 snapshot.data.documents[i].data["design"]
-                                    ? Text("design")
+                                    ? Text("design",
+                                        style: TextStyle(color: Colors.white))
                                     : Text(""),
                                 SizedBox(
                                   width: 3,
                                 ),
                                 snapshot.data.documents[i].data["frontend"]
-                                    ? Text("frontend")
+                                    ? Text("frontend",
+                                        style: TextStyle(color: Colors.white))
                                     : Text(""),
                                 SizedBox(
                                   width: 3,
                                 ),
                                 snapshot.data.documents[i].data["mobile"]
-                                    ? Text("mobile")
+                                    ? Text("mobile",
+                                        style: TextStyle(color: Colors.white))
                                     : Text(""),
                                 SizedBox(
                                   width: 3,
                                 ),
                                 snapshot.data.documents[i].data["blockchain"]
-                                    ? Text("blockchain")
+                                    ? Text("blockchain",
+                                        style: TextStyle(color: Colors.white))
                                     : Text(""),
                                 SizedBox(
                                   width: 3,

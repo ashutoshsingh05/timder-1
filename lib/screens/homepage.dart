@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currrentIndex = 1;
+  int currrentIndex = 0;
 
   List<Widget> _displayWidgets = <Widget>[
     ProfilePage(),

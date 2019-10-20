@@ -73,6 +73,8 @@ class _SignInPageState extends State<SignInPage> {
         .document(user.email)
         .setData(
       {
+        "githubLink": "NA",
+        "linkedinLink": "NA",
         "displayName": user.displayName,
         "email": user.email,
         "uid": user.uid,

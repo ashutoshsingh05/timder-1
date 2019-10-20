@@ -121,7 +121,7 @@ class _TimderSwipeState extends State<TimderSwipe> {
                 if (isRight) {
                   await Firestore.instance
                       .collection("participants")
-                      .document(snapshot.data.documents[index].data["email"])
+                      .document(Timder.prefs.getString(Timder.emailPref))
                       .updateData({
                     "rightSwipes": FieldValue.arrayUnion(
                         [Timder.prefs.getString(Timder.emailPref)]),
@@ -129,7 +129,7 @@ class _TimderSwipeState extends State<TimderSwipe> {
                 } else {
                   await Firestore.instance
                       .collection("participants")
-                      .document(snapshot.data.documents[index].data["email"])
+                      .document(Timder.prefs.getString(Timder.emailPref))
                       .updateData({
                     "leftSwipes": FieldValue.arrayUnion(
                         [Timder.prefs.getString(Timder.emailPref)]),
