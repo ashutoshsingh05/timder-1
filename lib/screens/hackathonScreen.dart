@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:timder/Utils/timder.dart';
 import 'package:timder/models/hackathon.dart';
 import 'package:timder/screens/teampage.dart';
 
@@ -35,33 +36,37 @@ class _HackathonScreenState extends State<HackathonScreen> {
             // print(hackathons[0].toJSON());
 
             return Container(
-              height: double.infinity,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                Colors.blue[900],
-                Colors.indigo,
-                Colors.deepPurple,
-                Colors.purple[900]
-              ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
-              child: SingleChildScrollView(
-                child: Center(
-                  child: Wrap(
-                    alignment: WrapAlignment.spaceBetween,
-                    runAlignment: WrapAlignment.spaceEvenly,
-                    children: <Widget>[
-                      cardBuilder(hackathon: hackathons[0]),
-                      cardBuilder(hackathon: hackathons[1]),
-                      cardBuilder(hackathon: hackathons[1]),
-                      cardBuilder(hackathon: hackathons[0]),
-                    ],
+                height: double.infinity,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                  Colors.blue[900],
+                  Colors.indigo,
+                  Colors.deepPurple,
+                  Colors.purple[900]
+                ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Wrap(
+                      alignment: WrapAlignment.spaceBetween,
+                      runAlignment: WrapAlignment.spaceEvenly,
+                      children: cardList(
+                        hackathons: hackathons,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            );
+                ));
           }
         }
       },
     );
+  }
+
+  List<Widget> cardList({@required List<Hackathon> hackathons}) {
+    List<Widget> cards = List<Widget>(hackathons.length);
+    for (int i = 0; i < hackathons.length; i++) {
+      cards[i] = cardBuilder(hackathon: hackathons[i]);
+    }
+    return cards;
   }
 
   Widget cardBuilder({@required Hackathon hackathon}) {
@@ -105,6 +110,7 @@ class _HackathonScreenState extends State<HackathonScreen> {
               builder: (BuildContext context) {
                 return TeamPage(
                   hackathon: hackathon,
+                  currentUser: Timder.currentUser,
                 );
               },
             ),
